@@ -54,26 +54,27 @@ if (number % 2 == 0)
     Console.Write($"Number {number} is even,is divisible by 2 without remainder ");
 else 
     Console.Write($"Number {number} is not even");
-
+*/
+/*
 Задача 4: Напишите программу, которая на вход принимает число (N), 
 а на выходе показывает все чётные числа от 1 до N.
 
 5 -> 2, 4
 8 -> 2, 4, 6, 8
-
-
+*/
+/*
 Console.Write("Input any positiv integer number ");
 int number = Convert.ToInt32(Console.ReadLine());
-int current = 1;
+int current = 2;
 
 while(current <= number)
 {
     if (current % 2 == 0)
         Console.Write(current + " ");
-    current ++;
+    current += 2;
 }
-
-*/ 
+*/
+ 
 //                                  Методы
 //Задача 1: Напишите программу, которая на вход принимает два числа и 
 //выдаёт, какое число большее, а какое меньшее. Решение с испо-ем метода.
@@ -107,11 +108,9 @@ Console.WriteLine($"Bigger number is {max}");
 int MaxNumber(int firstNumber, int secondNumber, int thirdNumber)
 {
     int max = firstNumber;
-    if (secondNumber > firstNumber) return secondNumber;
-    return firstNumber;  
-        if (thirdNumber > secondNumber) return thirdNumber;
-        return firstNumber;
-
+    if (secondNumber > max) max = secondNumber;
+    if (thirdNumber > max) max = thirdNumber;
+    return max;
 }
 
 Console.WriteLine("Input the first number");
@@ -124,4 +123,26 @@ int thirdNumber = Convert.ToInt32(Console.ReadLine());
 int max = MaxNumber(firstNumber, secondNumber, thirdNumber);
 
 Console.Write($" Max number is {max}");
+*/
+/*
+Задача 3:Напишите программу, которая на вход принимает число и выдаёт,
+ является ли число чётным (делится ли оно на два без остатка). С исп-ем метода.
+Например:
+4 -> да
+-3 -> нет
+7 -> нет
+*/
+/*
+bool IsEven (int number)
+{
+    if (number % 2 == 0) return true;
+    return false;
+}
+Console.WriteLine("Input any number");
+int number = Convert.ToInt32(Console.ReadLine());
+
+bool result = IsEven(number);
+
+Console.WriteLine(result ? $"Number {number} is even" : $"Number {number} isn't even");
+
 */
