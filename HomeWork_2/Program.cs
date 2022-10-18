@@ -53,8 +53,8 @@ if (result == -1)
     Console.WriteLine("This number hasn't the third figure");
 else    
     Console.WriteLine($"The third figure of number {number} is {result}");
-*/
 
+*/
 /* Задача 3. Напишите программу, которая принимает на вход цифру, обозначающую 
 //день недели, и проверяет, является ли этот день выходным.
 
