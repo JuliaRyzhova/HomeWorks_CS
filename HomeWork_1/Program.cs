@@ -103,7 +103,7 @@ Console.WriteLine($"Bigger number is {max}");
 //2, 3, 7 -> 7
 //44 5 78 -> 78
 //22 3 9 -> 22
-
+/*
 int MaxNumber(int firstNumber, int secondNumber, int thirdNumber)
 {
     int max = firstNumber;
@@ -124,3 +124,4 @@ int thirdNumber = Convert.ToInt32(Console.ReadLine());
 int max = MaxNumber(firstNumber, secondNumber, thirdNumber);
 
 Console.Write($" Max number is {max}");
+*/
