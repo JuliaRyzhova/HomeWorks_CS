@@ -73,4 +73,54 @@ while(current <= number)
     current ++;
 }
 
+*/ 
+//                                  Методы
+//Задача 1: Напишите программу, которая на вход принимает два числа и 
+//выдаёт, какое число большее, а какое меньшее. Решение с испо-ем метода.
+//Например:
+//a = 5; b = 7 -> max = 7
+//a = 2 b = 10 -> max = 10
+//a = -9 b = -3 -> max = -3
+/*
+int MaxNumber(int firstNumber, int secondNumber)
+{
+    int max = firstNumber;
+    if (secondNumber > max) return secondNumber;
+    else return max;
+}
+
+Console.WriteLine("Input the first number");
+int firstNumber = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the second number");
+int secondNumber = Convert.ToInt32(Console.ReadLine());
+
+int max = MaxNumber(firstNumber, secondNumber);
+Console.WriteLine($"Bigger number is {max}");
 */
+//Задача 2: Напишите программу, которая принимает на вход три числа 
+//и выдаёт максимальное из этих чисел. С испол-ем метода.
+//Например:
+//2, 3, 7 -> 7
+//44 5 78 -> 78
+//22 3 9 -> 22
+
+int MaxNumber(int firstNumber, int secondNumber, int thirdNumber)
+{
+    int max = firstNumber;
+    if (secondNumber > firstNumber) return secondNumber;
+    return firstNumber;  
+        if (thirdNumber > secondNumber) return thirdNumber;
+        return firstNumber;
+
+}
+
+Console.WriteLine("Input the first number");
+int firstNumber = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the second number");
+int secondNumber = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the third number");
+int thirdNumber = Convert.ToInt32(Console.ReadLine());
+
+int max = MaxNumber(firstNumber, secondNumber, thirdNumber);
+
+Console.Write($" Max number is {max}");
