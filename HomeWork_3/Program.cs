@@ -28,12 +28,12 @@ bool result= IsPalindrom(number);
 Console.WriteLine(result ? "Tne number is palindrome" : "The number isn't palindrome");
 */ 
 
-// Напишите программу, которая принимает на вход координаты двух 
+// Задача 2. Напишите программу, которая принимает на вход координаты двух 
 //точек и находит расстояние между ними в 3D пространстве.
 //Например:
 //A (3,6,8); B (2,1,-7), -> 15.84
 //A (7,-5, 0); B (1,-1,9) -> 11.53
-
+/*
 // Формула нах-я расстояния √ (x2-x1)^2)+ (y2-y1)^2+ (z2-z1)^2
 double IsDistance(double x, double y, double z, double x2, double y2, double z2)
 {
@@ -62,6 +62,7 @@ double result = IsDistance(x, y, z, x1, y1, z1);
 result = Math.Round(result, 2);
 
 Console.WriteLine($"The distance between the specified points A and B is {result}");
+*/
 
 // Задача 3. Напишите программу, которая принимает на вход число (N) и 
 // выдаёт таблицу кубов чисел от 1 до N.
