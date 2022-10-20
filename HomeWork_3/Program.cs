@@ -4,31 +4,31 @@
 //14212 -> нет
 //12821 -> да
 //23432 -> да
-/*
-bool IsPalindrome(int number)
-    //if (number => 10000 || number < 100000)
-        {
-            if (number / 10000 == number % 10)
-            {
-                if (number / 1000 == number / 10 % 10)
-                {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-    //return -1;
 
 Console.WriteLine ("Input the five digit number:");
 int number = Convert.ToInt32(Console.ReadLine());
 
-bool result = IsPalindrome(number);
+
+//{
+    //if (number / Math.Pow(10, 4) != number % 10) return false;
+       // if (number / Math.Pow(10, 3) % 10 != number / 10 % 10) return false;
+        //return true;
+//}
+
+
+    if (number / 10000 == number % 10) Console.WriteLine("+1");  
+    else Console.WriteLine("-1");
+    
+        
+    //((number / Math.Pow(10, 3) % 10 == number / 10 % 10)) return true;
+           
+
 
 //if (result == -1)
 //Console.WriteLine("Invalid number");
-Console.WriteLine(result ? "Tne number is palindrome" : "The number isn't palindrome");
-*/
+
+//Console.WriteLine(result ? "Tne number is palindrome" : "The number isn't palindrome");
+
 
 // Задача 3. Напишите программу, которая принимает на вход число (N) и 
 // выдаёт таблицу кубов чисел от 1 до N.
