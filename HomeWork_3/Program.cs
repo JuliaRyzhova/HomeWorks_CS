@@ -35,30 +35,31 @@ Console.WriteLine(result ? "Tne number is palindrome" : "The number isn't palind
 //A (7,-5, 0); B (1,-1,9) -> 11.53
 
 // Формула нах-я расстояния √ (x2-x1)^2)+ (y2-y1)^2+ (z2-z1)^2
-int IsDistance(int x, int y, int z, int x2, int y2, int z2)
+double IsDistance(double x, double y, double z, double x2, double y2, double z2)
 {
-    int dis = Convert.ToInt32(Math.Sqrt
-    (Convert.ToInt32(Math.Pow(x2 - x,2)) + 
-    (Convert.ToInt32(Math.Pow(y2 - y, 2)) + 
-    (Convert.ToInt32(Math.Pow(z2 - z, 2))))));
+    double dis = Convert.ToDouble(Math.Sqrt
+    (Convert.ToDouble(Math.Pow(x2 - x,2)) + 
+    (Convert.ToDouble(Math.Pow(y2 - y, 2)) + 
+    (Convert.ToDouble(Math.Pow(z2 - z, 2))))));
     return dis;
 }
 
 Console.WriteLine("Input value x of A");
-int x = Convert.ToInt32(Console.ReadLine());
+double x = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Input value y of A");
-int y = Convert.ToInt32(Console.ReadLine());
+double y = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Input value z of A");
-int z = Convert.ToInt32(Console.ReadLine());
+double z = Convert.ToDouble(Console.ReadLine());
 
 Console.WriteLine("Input value x of B");
-int x1 = Convert.ToInt32(Console.ReadLine());
+double x1 = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Input value y of B");
-int y1 = Convert.ToInt32(Console.ReadLine());
+double y1 = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Input value z of B");
-int z1 = Convert.ToInt32(Console.ReadLine());
+double z1 = Convert.ToDouble(Console.ReadLine());
 
-int result = IsDistance(x, y, z, x1, y1, z1);
+double result = IsDistance(x, y, z, x1, y1, z1);
+result = Math.Round(result, 2);
 
 Console.WriteLine($"The distance between the specified points A and B is {result}");
 
