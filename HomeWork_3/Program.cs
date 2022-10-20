@@ -7,11 +7,9 @@
 /*
 bool IsPalindrom(int number)
 {
-
-    if (number / Convert.ToInt32(Math.Pow(10, 4)) != number % 10) return false;
-    if (number / Convert.ToInt32(Math.Pow(10, 3)) % 10 == number / 10 % 10) return true;
-    return false;
-    
+        if (number / Convert.ToInt32(Math.Pow(10, 4)) != number % 10) return false;
+        if (number / Convert.ToInt32(Math.Pow(10, 3)) % 10 == number / 10 % 10) return true;
+        return false;
     // Еще одно возможное решение. Но тот вариант, который я оставила выполнит меньше
     // операций, если на первом if выпадет false, то прогр-а прекратит работу и
     // не будет сравнивать следующие числа.
@@ -25,8 +23,12 @@ int number = Convert.ToInt32(Console.ReadLine());
 
 bool result= IsPalindrom(number);
 
-Console.WriteLine(result ? "Tne number is palindrome" : "The number isn't palindrome");
-*/ 
+if (number >= 10000 && number < 100000)
+    Console.WriteLine(result ? $"The number {number} is palindrome" : $"The number {number} isn't palindrome");
+else    
+    Console.WriteLine("Invalid number. Try again");
+*/
+
 
 // Задача 2. Напишите программу, которая принимает на вход координаты двух 
 //точек и находит расстояние между ними в 3D пространстве.
