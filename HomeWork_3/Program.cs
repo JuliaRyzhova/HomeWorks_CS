@@ -6,7 +6,7 @@
 //23432 -> да
 
 // Решение для любого числа:
-/*
+
 bool IsPalindrom (int number)
 {
     int countFigures = 1; // кол-во цифр
@@ -16,10 +16,16 @@ bool IsPalindrom (int number)
         reservNumber = reservNumber / 10;
         countFigures ++;
     }
-    while (number/ Convert.ToInt32(Math.Pow(10, countFigures -1)) == number % 10) return true;
-        number = number / 10 % (countFigures -2); //отсекаем первую и последнюю цифру
-        countFigures --;
-    return false;     
+    while(countFigures > 1)
+    {
+        if (number/ Convert.ToInt32(Math.Pow(10, countFigures -1)) != number % 10)
+        {
+            return false;
+        }
+            number = number / 10 % (countFigures -2); //отсекаем первую и последнюю цифру
+            countFigures -=2;
+    }
+    return true;     
 }                
 
 Console.Write("Input any number: ");
@@ -28,7 +34,7 @@ int number = Convert.ToInt32(Console.ReadLine());
 bool result = IsPalindrom(number);
 
 Console.WriteLine(result ? $"The number {number} is palindrome" : $"The number {number} isn't palindrome");
-*/
+
 // Решение для 5-значного числа
 /*
 bool IsPalindrom(int number)
