@@ -6,9 +6,30 @@
 //23432 -> да
 
 // Решение для любого числа:
+/*
+bool IsPalindrom (int number)
+{
+    int countFigures = 1; // кол-во цифр
+    int reservNumber = number; // переменная для просчета кол-ва цифр
+    while (reservNumber / 10 > 0)
+    {   
+        reservNumber = reservNumber / 10;
+        countFigures ++;
+    }
+    while (number/ Convert.ToInt32(Math.Pow(10, countFigures -1)) == number % 10) return true;
+        number = number / 10 % (countFigures -2); //отсекаем первую и последнюю цифру
+        countFigures --;
+    return false;     
+}                
 
+Console.Write("Input any number: ");
+int number = Convert.ToInt32(Console.ReadLine());
 
+bool result = IsPalindrom(number);
 
+Console.WriteLine(result ? $"The number {number} is palindrome" : $"The number {number} isn't palindrome");
+*/
+// Решение для 5-значного числа
 /*
 bool IsPalindrom(int number)
 {
@@ -40,8 +61,9 @@ else
 //Например:
 //A (3,6,8); B (2,1,-7), -> 15.84
 //A (7,-5, 0); B (1,-1,9) -> 11.53
-/*
+
 // Формула нах-я расстояния √ (x2-x1)^2)+ (y2-y1)^2+ (z2-z1)^2
+/*
 double IsDistance(double x, double y, double z, double x2, double y2, double z2)
 {
     double dis = Convert.ToDouble(Math.Sqrt
@@ -132,7 +154,7 @@ void PrintArray(int [] newCub)
     }
 }
 
-Console.WriteLine("Input any nubmer from 1 to 10");
+Console.WriteLine("Input any positiv number");
 int lenght = Convert.ToInt32(Console.ReadLine()) + 1;
  // new int [10] - оператор создающий новый массив из "N" эл-ов
 int [] array = new int [lenght];
