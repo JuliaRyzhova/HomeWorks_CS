@@ -4,6 +4,11 @@
 //14212 -> нет
 //12821 -> да
 //23432 -> да
+
+// Решение для любого числа:
+
+
+
 /*
 bool IsPalindrom(int number)
 {
@@ -72,19 +77,39 @@ Console.WriteLine($"The distance between the specified points A and B is {result
 //3 -> 1, 8, 27
 //5 -> 1, 8, 27, 64, 125
 
-// Решение без использования метода
+// Решение с использованием метода
 /*
-Console.WriteLine("Input any number from 1 to 10");
-int number = Convert.ToInt32(Console.ReadLine());
-
+void Cube(int number)
+{
     int current = 1;
     while(current <= number)
     {
-        Console.Write((Math.Pow(current, 3)) + ", ");
+        Console.Write((Math.Pow(current, 3)) + " ");
         current ++;
     }
+}    
+Console.Write("Input any positiv number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+Cube(number);
 */
-// Решение с использованием метода и массива
+// Решение с использованием цикла for
+/*
+void Cube(int number)
+{
+    for (int count = 1; count <= number; count ++)
+    {
+        Console.Write($"{Math.Pow(count, 3)} ");
+    }
+}
+
+Console.Write("Input any positiv number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+Cube(number);
+*/
+
+// Решение с использованием массива
 /*
 void FillArray(int [] cube)
 {
