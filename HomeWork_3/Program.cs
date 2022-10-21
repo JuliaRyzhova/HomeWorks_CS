@@ -22,7 +22,7 @@ bool IsPalindrom (int number)
         {
             return false;
         }
-            number = number / 10 % (countFigures -2); //отсекаем первую и последнюю цифру
+            number = number / 10 % Convert.ToInt32(Math.Pow(10,countFigures -2)); //отсекаем первую и последнюю цифру
             countFigures -=2;
     }
     return true;     
