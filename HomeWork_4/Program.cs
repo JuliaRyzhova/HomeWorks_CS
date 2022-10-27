@@ -5,13 +5,16 @@
 2, 4 -> 16
 */
 // Решение церез цикл
+/*
 int MathPower(int a, int b)
 {
-    for (int i = 1, result = 0; i < b; i++)
+    int result = 0;
+    for (int i = 1, temp = a; i < b; i++)
     {
-        result = a * i;
-        return result;
+        temp = temp * a;
+        result = temp;
     }
+        return result;
 }
 Console.WriteLine("Input value of A: ");
 int a = Convert.ToInt32(Console.ReadLine());
@@ -20,6 +23,8 @@ int b = Convert.ToInt32(Console.ReadLine());
 
 int result = MathPower(a, b);
 Console.WriteLine($"{a} to the degree of {b} is {result}");
+*/
+// Решение без цикла
 /*
 int MathPower(int a, int b)
 {
