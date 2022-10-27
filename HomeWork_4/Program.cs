@@ -91,3 +91,21 @@ Console.WriteLine(result);
 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 6, 1, 33 -> [6, 1, 33]
 */
+void FillArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"Input a number with the index {i}: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+}
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine(array[i]);
+    }
+}
+int[] array = new int[8];
+FillArray(array);
+PrintArray(array);
