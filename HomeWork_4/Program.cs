@@ -48,7 +48,25 @@ Console.WriteLine($"{a} to the degree of {b} is {result}");
 82 -> 10
 9012 -> 12
 */
+// Решение с циклом for
+/*
+int Sum (int number)
+{
+    int result = 0;
+    for (; number > 0; number /= 10)
+    {
+        result += number % 10;
+    }
+    return result;
+}
+Console.WriteLine("Input any positiv number: ");
+int number = Convert.ToInt32(Console.ReadLine());
 
+int result = Sum(number);
+Console.WriteLine($"the sum of the digits of {number} is {result}");
+*/
+// Решение с циклом while
+/*
 int Sum(int number)
 {
     int result = 0;
@@ -64,7 +82,7 @@ int number = Convert.ToInt32(Console.ReadLine());
 
 int result = Sum(number);
 Console.WriteLine(result);
-
+*/
 
 
 /* Задача 3. Напишите программу, которая задаёт массив из 8 элементов 
