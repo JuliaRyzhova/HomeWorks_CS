@@ -5,7 +5,7 @@
 2, 4 -> 16
 */
 // Решение церез цикл
-
+/*
 int MathPower(int a, int b)
 {
     int result = 1;
@@ -23,7 +23,7 @@ int b = Convert.ToInt32(Console.ReadLine());
 
 int result = MathPower(a, b);
 Console.WriteLine($"{a} to the degree of {b} is {result}");
-
+*/
 // Решение без цикла
 /*
 int MathPower(int a, int b)
@@ -48,7 +48,6 @@ Console.WriteLine($"{a} to the degree of {b} is {result}");
 82 -> 10
 9012 -> 12
 */
-/*
 int Sum(int number)
 {
     int result = 0;
@@ -63,8 +62,8 @@ Console.WriteLine("Input any positiv number: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
 int result = Sum(number);
-Console.WriteLine($"The sum of the digits of {number} is {result}");
-*/
+
+
 
 /* Задача 3. Напишите программу, которая задаёт массив из 8 элементов 
 и выводит их на экран.
