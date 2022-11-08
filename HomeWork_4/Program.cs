@@ -6,38 +6,22 @@
 */
 // Решение церез цикл
 /*
-int MathPower(int a, int b)
+int ExponentiationAB(int a, int b)
 {
     int result = 1;
     for (int i = 1; i <= b; i++)
     {
-        result = result * a; 
+        result *= a;
     }
-        return result;
-    
-}
-Console.WriteLine("Input value of A: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input value of B: ");
-int b = Convert.ToInt32(Console.ReadLine());
-
-int result = MathPower(a, b);
-Console.WriteLine($"{a} to the degree of {b} is {result}");
-*/
-// Решение без цикла
-/*
-int MathPower(int a, int b)
-{
-    int result = Convert.ToInt32(Math.Pow(a, b));
     return result;
-}
 
-Console.WriteLine("Input value of A: ");
+}
+Console.WriteLine("Input the value of A: ");
 int a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Input value of B: ");
+Console.WriteLine("Input the value of B: ");
 int b = Convert.ToInt32(Console.ReadLine());
 
-int result = MathPower(a, b);
+int result = ExponentiationAB(a, b);
 Console.WriteLine($"{a} to the degree of {b} is {result}");
 */
 
@@ -50,7 +34,7 @@ Console.WriteLine($"{a} to the degree of {b} is {result}");
 */
 // Решение с циклом for
 /*
-int Sum (int number)
+int SumDigitsOfNumber(int number)
 {
     int result = 0;
     for (; number > 0; number /= 10)
@@ -62,28 +46,8 @@ int Sum (int number)
 Console.WriteLine("Input any positiv number: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int result = Sum(number);
-Console.WriteLine($"the sum of the digits of {number} is {result}");
+Console.WriteLine($"The sum of the digits of number {number} is {SumDigitsOfNumber(number)}");
 */
-// Решение с циклом while
-/*
-int Sum(int number)
-{
-    int result = 0;
-    while (number > 0)
-    {
-        result = result + number % 10;
-        number = number / 10;
-    }
-        return result;
-}
-Console.WriteLine("Input any positiv number: ");
-int number = Convert.ToInt32(Console.ReadLine());
-
-int result = Sum(number);
-Console.WriteLine(result);
-*/
-
 
 /* Задача 3. Напишите программу, которая задаёт массив из 8 элементов 
 и выводит их на экран.
@@ -91,21 +55,28 @@ Console.WriteLine(result);
 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 6, 1, 33 -> [6, 1, 33]
 */
-void FillArray(int[] array)
+/*
+int[] CreateArrayForUserInput(int size)
 {
+    int[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"Input a number with the index {i}: ");
+        Console.Write($"Input the number with the index {i}: ");
         array[i] = Convert.ToInt32(Console.ReadLine());
     }
+    return array;
 }
 void PrintArray(int[] array)
 {
+    Console.Write("\nThe created array is: ");
     for (int i = 0; i < array.Length; i++)
     {
-        Console.WriteLine(array[i]);
+        Console.Write($"{array[i]} ");
     }
 }
-int[] array = new int[8];
-FillArray(array);
-PrintArray(array);
+Console.Write("Input number of array elements: ");
+int sizeArray = Convert.ToInt32(Console.ReadLine());
+
+int[] myArray = CreateArrayForUserInput(sizeArray);
+PrintArray(myArray);
+*/
