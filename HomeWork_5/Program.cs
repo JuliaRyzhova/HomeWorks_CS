@@ -1,18 +1,9 @@
-﻿/*
-Задача 1: Задайте массив заполненный случайными положительными 
-трёхзначными числами. Напишите программу, которая покажет 
-количество чётных чисел в массиве.
-Например:
-[345, 897, 568, 234] -> 2
-*/
-/*
-int[] CreateArrayPositivNumbers(int size, int minValue, int maxValue)
+﻿// Основные методы
+int[] CreateRandomArray(int size, int minValue, int maxValue)
 {
     int[] array = new int[size];
     for (int i = 0; i < array.Length; i++)
-    {
         array[i] = new Random().Next(minValue, maxValue + 1);
-    }
     return array;
 }
 
@@ -20,31 +11,33 @@ void PrintArray(int[] array)
 {
     Console.Write("The created array is: ");
     for (int i = 0; i < array.Length; i++)
-    {
         Console.Write($"{array[i]} ");
-    }
     Console.WriteLine();
 }
+
+/*
+Задача 1: Задайте массив заполненный случайными положительными 
+трёхзначными числами. Напишите программу, которая покажет 
+количество чётных чисел в массиве.
+Например:
+[345, 897, 568, 234] -> 2
+*/
+/*
 int CountEvenArrayItems(int[] array)
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
-    {
         if (array[i] % 2 == 0) count++;
-    }
     return count;
 }
 
 Console.Write("Input the size of the array: ");
 int sizeArray = Convert.ToInt32(Console.ReadLine());
 
-Console.Write("Input the value of the min element in the array: ");
-int min = Convert.ToInt32(Console.ReadLine());
+int min = 100;
+int max = 999;
 
-Console.Write("Input the value of the max element in the array: ");
-int max = Convert.ToInt32(Console.ReadLine());
-
-int[] myArray = CreateArrayPositivNumbers(sizeArray, min, max);
+int[] myArray = CreateRandomArray(sizeArray, min, max);
 PrintArray(myArray);
 
 Console.Write($"This array has {CountEvenArrayItems(myArray)} even elements");
@@ -57,33 +50,11 @@ Console.Write($"This array has {CountEvenArrayItems(myArray)} even elements");
 [-4, -6, 89, 6] -> 0
 */
 /*
-int[] CreateRandomArray(int size, int minValue, int maxValue)
-{
-    int[] array = new int[size];
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = new Random().Next(minValue, maxValue + 1);
-    }
-    return array;
-}
-
-void PrintArray(int[] array)
-{
-    Console.Write("The created array is: ");
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
-
-int SumItemsUnevenIndex(int[] array)
+int SumItemsOddIndex(int[] array)
 {
     int sum = 0;
     for (int i = 1; i < array.Length; i += 2)
-    {
         sum += array[i];
-    }
     return sum;
 }
 
@@ -99,7 +70,7 @@ int max = Convert.ToInt32(Console.ReadLine());
 int[] myArray = CreateRandomArray(sizeArray, min, max);
 PrintArray(myArray);
 
-Console.Write($"The sum of the elements with uneven indexes in this array is {SumItemsUnevenIndex(myArray)}");
+Console.Write($"The sum of the elements with odd indexes in this array is {SumItemsOddIndex(myArray)}");
 */
 /*
 Задача 38: Задайте массив вещественных чисел. 
@@ -108,55 +79,49 @@ Console.Write($"The sum of the elements with uneven indexes in this array is {Su
 [3 7 22 2 78] -> 76
 */
 /*
-int[] CreateRandomArray(int size, int minValue, int maxValue)
+double[] CreateDoubleRandomArray(int size, double minValue, double maxValue)
 {
-    int[] array = new int[size];
+    double[] array = new double[size];
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue + 1);
+        array[i] = minValue + (new Random().NextDouble()) * (maxValue - minValue);
+        array[i] = Math.Round(array[i], 2);
     }
     return array;
 }
-
-void PrintArray(int[] array)
+void PrintDoubleArray(double[] array)
 {
     Console.Write("The created array is: ");
     for (int i = 0; i < array.Length; i++)
-    {
         Console.Write($"{array[i]} ");
-    }
     Console.WriteLine();
 }
 
-int DifferenceBetweenMaxMinItems(int[] array)
+double DiffBetweenMaxMinItems(double[] array)
 {
-    int min = array[0];
-    int max = array[0];
+    double min = array[0];
+    double max = array[0];
     for (int i = 1; i < array.Length; i++)
-    {
         if (array[i] < min) min = array[i];
-    }
     Console.Write($"The min element in this array is {min}\n");
     for (int i = 1; i < array.Length; i++)
-    {
         if (array[i] > max) max = array[i];
-    }
     Console.Write($"The max element in this array is {max}\n");
-    return max - min;
+    return Math.Round(max - min, 2);
 }
 
 Console.Write("Input the size of the array: ");
 int sizeArray = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input the value of the min element in the array: ");
-int min = Convert.ToInt32(Console.ReadLine());
+double min = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input the value of the max element in the array: ");
-int max = Convert.ToInt32(Console.ReadLine());
+double max = Convert.ToInt32(Console.ReadLine());
 
-int[] myArray = CreateRandomArray(sizeArray, min, max);
-PrintArray(myArray);
+double[] myDoubleArray = CreateDoubleRandomArray(sizeArray, min, max);
+PrintDoubleArray(myDoubleArray);
 
-Console.Write($"The difference between the max and min elements is {DifferenceBetweenMaxMinItems(myArray)}");
+Console.Write($"The difference between the max and min elements is {DiffBetweenMaxMinItems(myDoubleArray)}");
 */
 
