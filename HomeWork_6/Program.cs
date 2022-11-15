@@ -35,8 +35,8 @@ b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 void InterPoint(double b1, double k1, double b2, double k2)
 {
     double x, y;
-    if (k1 == k2) Console.WriteLine($"These straight lines have not a intersection point. They are parallel");
-    else if ( k1==k2 && b1 == b2) Console.WriteLine($"These straight lines are the same");
+    if (k1 == k2 && b1 != b2) Console.WriteLine($"These straight lines have not a intersection point. They are parallel");
+    else if (k1 == k2 && b1 == b2) Console.WriteLine($"These straight lines are the same");
     else
     {
         x = (b2 - b1) / (k1 - k2);
