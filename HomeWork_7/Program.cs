@@ -1,4 +1,5 @@
-﻿double[,] CreateDoubleRamdomArray(int rows, int columns, int minValue, int maxValue)
+﻿//Методы
+double[,] CreateDoubleRamdomArray(int rows, int columns, int minValue, int maxValue)
 {
     double[,] array = new double[rows, columns];
     for (int i = 0; i < array.GetLength(0); i++)
@@ -80,7 +81,7 @@ void ShowArray(int[,] array)
     }
 }
 
-
+/*
 Console.WriteLine("Input a value of rows: ");
 int str = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input a value of columns: ");
@@ -92,3 +93,46 @@ int max = Convert.ToInt32(Console.ReadLine());
 
 int[,] myArray = CreateRandomArray(str,col,min,max);
 ShowArray(myArray);
+*/
+/* 
+Задача 3. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+*/
+
+void GetAverageRows(int[,] array)
+{
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        double sum = 0;
+        int count = 0;
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+                if (i == array.GetLength(0))
+                sum += array[i, j];
+                count++;
+        }
+        Console.Write($"{sum/count} ");
+    }
+
+    
+    
+}
+
+Console.WriteLine("Input a value of rows: ");
+int row = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input a value of columns: ");
+int column = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input a min element: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input a max element: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[,] myArray = CreateRandomArray(row, column, min, max);
+ShowArray(myArray);
+
+GetAverageRows(myArray);
