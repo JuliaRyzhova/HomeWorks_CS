@@ -97,9 +97,9 @@ int MinSumRows(int[,] array)
             index = i;
         }
     }
-    return index;
+    return index + 1;
 }
-
+/*
 Console.WriteLine("Input the number of rows (should be more than columns): ");
 int row = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input the number of columns: ");
@@ -112,4 +112,80 @@ int endValue = Convert.ToInt32(Console.ReadLine());
 int[,] myArray = Create2dRandomArray(row, column, startValue, endValue);
 Show2dArray(myArray, "Сreated array:");
 
-Console.Write($"Minimum sum of elements in a row with index {MinSumRows(myArray)}");
+Console.Write($"Minimum sum of elements in {MinSumRows(myArray)} row");
+*/
+/*
+Задача 3. Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18
+*/
+
+bool PossibleResultMatrix(int[,] array1, int[,] array2)
+{
+return (array1.GetLength(1) == array2.GetLength(0));
+}
+
+// Принцип работы- умножаем первую строку 1-й матрицы на 1-ый столбец второй матрицы
+int[,] ResultMatrix(int[,] array1, int[,] array2)
+{
+    int[,] resultMatrix = new int[array1.GetLength(0), array2.GetLength(1)];
+        for (int i = 0; i < array1.GetLength(0); i++)
+        {
+            for (int j = 0; j < array2.GetLength(1); j++)
+            {
+                for (int k = 0; k < array2.GetLength(0); k++)
+                {
+                    resultMatrix[i, j] += array1[i, k] * array2[k, j];
+                }
+            }
+        }return resultMatrix;   
+}
+/*
+Console.WriteLine("Input the number of rows for first matrix: ");
+int row1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the number of columns for first matrix: ");
+int column1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the min element: ");
+int startValue1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the max element: ");
+int endValue1 = Convert.ToInt32(Console.ReadLine());
+
+
+Console.WriteLine("Input the number of rows for second matrix: ");
+int row2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the number of columns for second matrix: ");
+int column2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the min element: ");
+int startValue2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the max element: ");
+int endValue2 = Convert.ToInt32(Console.ReadLine());
+
+int[,] firstMartix = Create2dRandomArray(row1, column1, startValue1, endValue1);
+Show2dArray(firstMartix, "First matrix");
+
+
+int[,] secondMatrix = Create2dRandomArray(row2, column2, startValue2, endValue2);
+Show2dArray(secondMatrix, "Second matrix");
+
+if(PossibleResultMatrix(firstMartix,secondMatrix) == true)
+{
+    int[,] resMatrix = ResultMatrix(firstMartix, secondMatrix);
+    Show2dArray(resMatrix, "The resulting matrix: ");
+}
+else Console.Write("Error. The number of columns of the first matrix must " + 
+"be equal to the number of rows of the second matrix!!!");
+*/
+
+/*
+Задача 4. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, 
+которая будет построчно выводить массив, добавляя индексы каждого элемента.
+Массив размером 2 x 2 x 2
+66(0,0,0) 25(0,1,0)
+34(1,0,0) 41(1,1,0)
+27(0,0,1) 90(0,1,1)
+26(1,0,1) 55(1,1,1)
+*/
