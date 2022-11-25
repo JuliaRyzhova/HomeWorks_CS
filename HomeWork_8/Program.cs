@@ -264,52 +264,52 @@ Show3DArray(my3DArray, "The created array: ");
 11 16 15 06
 10 09 08 07
 */
-int[,] SpiralMatrix(int rowCol, int minValue)
+int[,] SpiralMatrix(int row, int col, int startValue)
 {
-    int rows = rowCol;
-    int indexRow = rows - 1;
-    int columns = rowCol;
-    int indexCol = columns - 1;
-    int[,] matrixSP = new int[rows, columns];
-    int startValue = minValue;
-    for (int countStart = 0; countStart < columns * rows / 2; countStart++)
+
+    int startColumn = 0;
+    int endColumn = col - 1;
+    int startRow = 0;
+    int endRow = row - 1;
+    int[,] matrixSP = new int[row, col];
+
+    while (startColumn <= endColumn && startRow <= endRow)
     {
-        //1. Заполняем первую строку 
-        for (int i = countStart; i < columns - countStart; i++)
+        for (int i = startColumn; i <= endColumn; i++)
         {
-            matrixSP[countStart, i] = startValue;
+            matrixSP[startRow, i] = startValue;
             startValue++;
         }
-        startValue--;
-        //2. Заполняем последний столбец 
-        for (int j = countStart; j < rows - countStart; j++)
+        startRow++;
+        for (int j = startRow; j <= endRow; j++)
         {
-            matrixSP[j, indexCol - countStart] = startValue;
+            matrixSP[j, endColumn] = startValue;
             startValue++;
         }
-        startValue--;
-        //3. Заполняем нижнюю строку в обратном порядке
-        for (int i = indexCol - countStart; i >= countStart; i--)
+        endColumn--;
+        for (int i = endColumn; i >= startColumn; i--)
         {
-            matrixSP[indexRow - countStart, i] = startValue;
+            matrixSP[endRow, i] = startValue;
             startValue++;
         }
-        startValue--;
-        //4. Заполняем первый столбец слева
-        for (int j = indexRow - countStart; j >= 1 + countStart; j--)
+        endRow--;
+        for (int j = endRow; j >= startRow; j--)
         {
-            matrixSP[j, countStart] = startValue;
+            matrixSP[j, startColumn] = startValue;
             startValue++;
         }
+        startColumn++;
     }
     return matrixSP;
 }
 /*
-Console.WriteLine("Input the size of square matrix: ");
-int sizeMAtrix = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the value of rows matrix: ");
+int row = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the value of columns matrix: ");
+int column = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input the start element: ");
 int startValue = Convert.ToInt32(Console.ReadLine());
 
-int[,] spiral2Darray = SpiralMatrix(sizeMAtrix, startValue);
+int[,] spiral2Darray = SpiralMatrix(row, column, startValue);
 Show2dArray(spiral2Darray, "The spiral square matrix");
 */
