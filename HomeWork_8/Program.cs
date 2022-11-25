@@ -126,23 +126,24 @@ Console.Write($"Minimum sum of elements in {MinSumRows(myArray)} row");
 
 bool PossibleResultMatrix(int[,] array1, int[,] array2)
 {
-return (array1.GetLength(1) == array2.GetLength(0));
+    return (array1.GetLength(1) == array2.GetLength(0));
 }
 
 // Принцип работы- умножаем первую строку 1-й матрицы на 1-ый столбец второй матрицы
 int[,] ResultMatrix(int[,] array1, int[,] array2)
 {
     int[,] resultMatrix = new int[array1.GetLength(0), array2.GetLength(1)];
-        for (int i = 0; i < array1.GetLength(0); i++)
+    for (int i = 0; i < array1.GetLength(0); i++)
+    {
+        for (int j = 0; j < array2.GetLength(1); j++)
         {
-            for (int j = 0; j < array2.GetLength(1); j++)
+            for (int k = 0; k < array2.GetLength(0); k++)
             {
-                for (int k = 0; k < array2.GetLength(0); k++)
-                {
-                    resultMatrix[i, j] += array1[i, k] * array2[k, j];
-                }
+                resultMatrix[i, j] += array1[i, k] * array2[k, j];
             }
-        }return resultMatrix;   
+        }
+    }
+    return resultMatrix;
 }
 /*
 Console.WriteLine("Input the number of rows for first matrix: ");
@@ -189,3 +190,68 @@ else Console.Write("Error. The number of columns of the first matrix must " +
 27(0,0,1) 90(0,1,1)
 26(1,0,1) 55(1,1,1)
 */
+
+int[,,] Create3DArray(int planes, int rows, int columns)
+{
+    int[,,] array = new int[planes, rows, columns];
+    int[] uniqItems = new int[array.GetLength(0) * array.GetLength(1) * array.GetLength(2)];
+    int number;
+    for (int i = 0; i < uniqItems.Length; i++)
+    {
+        uniqItems[i] = new Random().Next(10, 100);
+        number = uniqItems[i];
+        if (i >= 1)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                while (uniqItems[i] == uniqItems[j])
+                {
+                    uniqItems[i] = new Random().Next(10, 100);
+                    j = 0;
+                    number = uniqItems[i];
+                }
+                number = uniqItems[i];
+            }
+        }
+    }
+    int count = 0;
+    for (int x = 0; x < array.GetLength(0); x++)
+    {
+        for (int y = 0; y < array.GetLength(1); y++)
+        {
+            for (int z = 0; z < array.GetLength(2); z++)
+            {
+                array[x, y, z] = uniqItems[count];
+                count++;
+            }
+        }
+    }
+    return array;
+}
+
+void Show3DArray(int[,,] array, string info)
+{
+    Console.WriteLine(info);
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.WriteLine();
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]} ({i},{j},{k})\t");
+            }
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.WriteLine("Input the number of planes: ");
+int plane = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the number of rows: ");
+int row = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the number of columns: ");
+int column = Convert.ToInt32(Console.ReadLine());
+
+int[,,] my3DArray = Create3DArray(plane, row, column);
+Show3DArray(my3DArray, "The created array: ");
