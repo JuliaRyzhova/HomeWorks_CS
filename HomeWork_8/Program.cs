@@ -245,7 +245,7 @@ void Show3DArray(int[,,] array, string info)
         Console.WriteLine();
     }
 }
-
+/*
 Console.WriteLine("Input the number of planes: ");
 int plane = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input the number of rows: ");
@@ -255,3 +255,61 @@ int column = Convert.ToInt32(Console.ReadLine());
 
 int[,,] my3DArray = Create3DArray(plane, row, column);
 Show3DArray(my3DArray, "The created array: ");
+*/
+/*
+Задача 5. Напишите программу, которая заполнит спирально массив 4 на 4.
+Например, на выходе получается вот такой массив:
+01 02 03 04
+12 13 14 05
+11 16 15 06
+10 09 08 07
+*/
+int[,] SpiralMatrix(int rowCol, int minValue)
+{
+    int rows = rowCol;
+    int indexRow = rows - 1;
+    int columns = rowCol;
+    int indexCol = columns - 1;
+    int[,] matrixSP = new int[rows, columns];
+    int startValue = minValue;
+    for (int countStart = 0; countStart < columns * rows / 2; countStart++)
+    {
+        //1. Заполняем первую строку 
+        for (int i = countStart; i < columns - countStart; i++)
+        {
+            matrixSP[countStart, i] = startValue;
+            startValue++;
+        }
+        startValue--;
+        //2. Заполняем последний столбец 
+        for (int j = countStart; j < rows - countStart; j++)
+        {
+            matrixSP[j, indexCol - countStart] = startValue;
+            startValue++;
+        }
+        startValue--;
+        //3. Заполняем нижнюю строку в обратном порядке
+        for (int i = indexCol - countStart; i >= countStart; i--)
+        {
+            matrixSP[indexRow - countStart, i] = startValue;
+            startValue++;
+        }
+        startValue--;
+        //4. Заполняем первый столбец слева
+        for (int j = indexRow - countStart; j >= 1 + countStart; j--)
+        {
+            matrixSP[j, countStart] = startValue;
+            startValue++;
+        }
+    }
+    return matrixSP;
+}
+/*
+Console.WriteLine("Input the size of square matrix: ");
+int sizeMAtrix = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the start element: ");
+int startValue = Convert.ToInt32(Console.ReadLine());
+
+int[,] spiral2Darray = SpiralMatrix(sizeMAtrix, startValue);
+Show2dArray(spiral2Darray, "The spiral square matrix");
+*/
