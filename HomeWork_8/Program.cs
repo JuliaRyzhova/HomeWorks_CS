@@ -271,38 +271,51 @@ int[,] SpiralMatrix(int row, int col, int startValue)
     int endColumn = col - 1;
     int startRow = 0;
     int endRow = row - 1;
+    int finishValue = startValue * row * col;
     int[,] matrixSP = new int[row, col];
 
     while (startColumn <= endColumn && startRow <= endRow)
     {
         for (int i = startColumn; i <= endColumn; i++)
         {
-            matrixSP[startRow, i] = startValue;
-            startValue++;
+            if (startValue <= finishValue)
+            {
+                matrixSP[startRow, i] = startValue;
+                startValue++;
+            }
         }
         startRow++;
         for (int j = startRow; j <= endRow; j++)
         {
-            matrixSP[j, endColumn] = startValue;
-            startValue++;
+            if (startValue <= finishValue)
+            {
+                matrixSP[j, endColumn] = startValue;
+                startValue++;
+            }
         }
         endColumn--;
         for (int i = endColumn; i >= startColumn; i--)
         {
-            matrixSP[endRow, i] = startValue;
-            startValue++;
+            if (startValue <= finishValue)
+            {
+                matrixSP[endRow, i] = startValue;
+                startValue++;
+            }
         }
         endRow--;
         for (int j = endRow; j >= startRow; j--)
         {
-            matrixSP[j, startColumn] = startValue;
-            startValue++;
+            if (startValue <= finishValue)
+            {
+                matrixSP[j, startColumn] = startValue;
+                startValue++;
+            }
         }
         startColumn++;
     }
     return matrixSP;
 }
-/*
+
 Console.WriteLine("Input the value of rows matrix: ");
 int row = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input the value of columns matrix: ");
@@ -312,4 +325,3 @@ int startValue = Convert.ToInt32(Console.ReadLine());
 
 int[,] spiral2Darray = SpiralMatrix(row, column, startValue);
 Show2dArray(spiral2Darray, "The spiral square matrix");
-*/
